@@ -3,6 +3,9 @@ services:
   app:
     build: .
     ports:
-      - '3000:3000'
-    env_file:
-      - .env
+      - "3000:3000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - .:/app
+    command: npm start
